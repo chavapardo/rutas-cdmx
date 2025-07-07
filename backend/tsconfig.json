@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",             // Moderno, soportado por Node 16+
+    "module": "commonjs",           // Requerido por Node.js
+    "outDir": "./dist",             // Carpeta donde se compila el JS
+    "rootDir": "./src",             // Tu código fuente
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "types": ["node"]
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}

@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Header } from "./components/Header";
-import { Footer } from "./components/Footer";
-import { Home } from "./pages/Home";
-import { Login } from "./pages/Login";
+import Header from "./components/Header";
+import Login from "./pages/Login";
 import { Register } from "./pages/Register";
-import CrearRutaPage from "./pages/CrearRutaPage";
-import RequireAuth from "./components/RequireAuth"; // agrega este import
+import Home from "./pages/Home"; // Tu página principal
+import CrearRuta from "./pages/CrearRuta"; // Página privada
+import PrivateRoute from "./components/PrivateRoute";
+import Footer from "./components/Footer"; // Componente de pie de página
 
 function App() {
   return (
@@ -16,15 +16,16 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        {/* Nueva ruta protegida */}
-        <Route 
-          path="/crear-ruta" 
+        {/* Ruta protegida */}
+        <Route
+          path="/crear-ruta"
           element={
-            <RequireAuth>
-              <CrearRutaPage />
-            </RequireAuth>
-          } 
+            <PrivateRoute>
+              <CrearRuta />
+            </PrivateRoute>
+          }
         />
+        {/* Puedes agregar más rutas aquí */}
       </Routes>
       <Footer />
     </Router>

@@ -9,7 +9,6 @@ const SectionBg = styled.section`
   width: 100%;
   padding: 2.5rem 0 2rem 0;
   box-sizing: border-box;
-
   @media (max-width: 900px) {
     padding: 2rem 0 1.5rem 0;
   }
@@ -146,3 +145,5 @@ export const Home: React.FC = () => (
     </MapContainer>
   </>
 );
+
+export default Home;
