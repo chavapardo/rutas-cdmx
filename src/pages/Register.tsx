@@ -99,12 +99,22 @@ export function Register() {
     e.preventDefault();
     setLoading(true);
     setError(null);
-    const { error } = await supabase.auth.signUp({ email, password });
-    setLoading(false);
-    if (error) {
-      setError(error.message);
-    } else {
-      navigate("/login");
+    try {
+      const response = await fetch("http://localhost:4000/api/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+      const data = await response.json();
+      setLoading(false);
+      if (!response.ok) {
+        setError(data.error);
+      } else {
+        navigate("/login");
+      }
+    } catch (err) {
+      setLoading(false);
+      setError("Error de conexión.");
     }
   };
 
