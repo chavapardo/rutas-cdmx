@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { supabase } from "../supabaseClient";
 import { SeoHelmet } from "../components/SeoHelmet";
 
 const RegisterWrapper = styled.div`
